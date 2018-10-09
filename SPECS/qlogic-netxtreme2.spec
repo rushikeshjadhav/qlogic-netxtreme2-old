@@ -15,17 +15,18 @@
 %define modules_package %{kernel_version}-%{modules_suffix}
 %define build_defs BNX2FC_KERNEL_OVERRIDE=1 BNX2FC_SUP=-DXENSERVER DISTRO=XCP-NG
 
-Summary: Qlogic NetXtreme II iSCSI, 1-Gigabit and 10-Gigabit ethernet drivers
+Summary: Older driver for Qlogic NetXtreme II iSCSI, 1-Gigabit and 10-Gigabit ethernet drivers
 Name: %{vendor_label}-%{driver_name}
 Version: 7.14.07
 Release: 1%{?dist}
 License: GPL
 Group: System Environment/Kernel
 Requires: %{name}-%{modules_package} = %{version}-%{release}
+#Source: http://ldriver.qlogic.com/driver-srpms/netxtreme2/netxtreme2-7.14.07-1.rhel7u3.src.rpm
 Source: %{name}-%{version}.tar.gz
 
 %description
-This package contains the Qlogic NetXtreme II iSCSI (bnx2i), 1-Gigabit (bnx2) and 10-Gigabit (bnx2x) ethernet drivers.
+This package contains the older Qlogic NetXtreme II iSCSI (bnx2i), 1-Gigabit (bnx2) and 10-Gigabit (bnx2x) ethernet drivers which are made compatible to current XCP kernel 4.4.0+10.
 
 %prep
 %autosetup -p1 -n driver-%{name}-%{version}
@@ -83,6 +84,8 @@ version %{kernel_version}.
 %exclude %{_mandir}/man4/*
 
 %changelog
+* Tue Oct 9 2018 Rushikesh Jadhav <rushikesh7@gmail.com> - 7.14.07
+- Use older driver of netxtreme2 if recent ones give stability issues or panic kernel.
+
 * Mon Oct 23 2017 Simon Rowe <simon.rowe@citrix.com> - 7.14.29.1-1
 - UPD-107: update netxtreme2 driver to 7.14.29.1 (QL-643)
-
