@@ -13,7 +13,7 @@
 %endif
 
 %define modules_package %{kernel_version}-%{modules_suffix}
-%define build_defs BNX2FC_KERNEL_OVERRIDE=1 BNX2FC_SUP=-DXENSERVER DISTRO=XCP-NG
+%define build_defs BNX2FC_KERNEL_OVERRIDE=1 BNX2FC_SUP=-DXENSERVER DISTRO=Citrix
 
 Summary: Older driver for Qlogic NetXtreme II iSCSI, 1-Gigabit and 10-Gigabit ethernet drivers
 Name: %{vendor_label}-%{driver_name}
@@ -22,11 +22,11 @@ Release: 1%{?dist}
 License: GPL
 Group: System Environment/Kernel
 Requires: %{name}-%{modules_package} = %{version}-%{release}
-#Source: http://ldriver.qlogic.com/driver-srpms/netxtreme2/netxtreme2-7.14.07-1.rhel7u3.src.rpm
+Source extracted from http://ldriver.qlogic.com/driver-srpms/netxtreme2/netxtreme2-7.14.07-1.rhel7u3.src.rpm
 Source: %{name}-%{version}.tar.gz
 
 %description
-This package contains the older Qlogic NetXtreme II iSCSI (bnx2i), 1-Gigabit (bnx2) and 10-Gigabit (bnx2x) ethernet drivers which are made compatible to current XCP kernel 4.4.0+10.
+This package contains the older Qlogic NetXtreme II iSCSI (bnx2i), 1-Gigabit (bnx2) and 10-Gigabit (bnx2x) ethernet drivers which are made compatible to current XCP-NG kernel.
 
 %prep
 %autosetup -p1 -n driver-%{name}-%{version}
