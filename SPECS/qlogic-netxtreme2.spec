@@ -22,7 +22,7 @@ Release: 1%{?dist}
 License: GPL
 Group: System Environment/Kernel
 Requires: %{name}-%{modules_package} = %{version}-%{release}
-Source extracted from http://ldriver.qlogic.com/driver-srpms/netxtreme2/netxtreme2-7.14.07-1.rhel7u3.src.rpm
+#Source extracted from http://ldriver.qlogic.com/driver-srpms/netxtreme2/netxtreme2-7.14.07-1.rhel7u3.src.rpm
 Source: %{name}-%{version}.tar.gz
 
 %description
@@ -84,7 +84,7 @@ version %{kernel_version}.
 %exclude %{_mandir}/man4/*
 
 %changelog
-* Tue Oct 9 2018 Rushikesh Jadhav <rushikesh7@gmail.com> - 7.14.07
+* Tue Oct 09 2018 Rushikesh Jadhav <rushikesh7@gmail.com> - 7.14.07-1
 - Use older driver of netxtreme2 if recent ones give stability issues or panic kernel.
 
 * Mon Oct 23 2017 Simon Rowe <simon.rowe@citrix.com> - 7.14.29.1-1
